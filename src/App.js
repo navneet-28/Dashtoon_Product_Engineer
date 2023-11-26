@@ -75,7 +75,7 @@ export default function App() {
       img.src = imagesData[k];
 
       function drawImageCanvas() {
-        ctx.drawImage(img, (k % 2) * 500, Math.floor(k / 2) * 300, 500, 300);
+        ctx.drawImage(img, (k % 2) * 500, Math.floor(k / 2) * 550, 500, 550);
       }
     });
   }
@@ -109,7 +109,7 @@ export default function App() {
     return (
       <Box sx={{ flexGrow: 1, borderRadius: 1 }}>
         <Typography variant="h5" sx={{ color: "black", margin: 2 }}>
-          Enter Number of rows of Comic Panel :
+          Enter Number of Comic Panels to be craeted :
         </Typography>
         <NumberInputBasic value={panel} setValue={setpanel} />
         <Grid container spacing={2}>
@@ -121,7 +121,7 @@ export default function App() {
             ref={canvasRef}
             style={{ margin: 3 }}
             width={1000}
-            height={(panel * 300) / 2}
+            height={Math.floor(panel / 2) * 550}
           ></canvas>
           <Button variant="contained" onClick={getStrip} sx={{ margin: 1 }}>
             Get Strip
@@ -136,7 +136,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <div className="header">Generate comic images using Dashtoon AI</div>
+      <div className="header">Generate comic images using Dashtoon</div>
       <div className="Grid">
         <ComplexFluidGrid />
       </div>
